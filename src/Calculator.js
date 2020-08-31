@@ -4,9 +4,7 @@ import { Badge, Button } from "react-bootstrap";
 import axios from "axios";
 import PieChart from "./PieChart.js";
 
-function percentdifference(wert1, wert2) {
-  return (wert2 / wert1) * 100 - 100;
-}
+const apiEndPointURL = "https://edelmetallbackend.herokuapp.com/investment/";
 
 function rendite(w1, w2) {
   if (!(typeof w1 == "number") || !(typeof w2 == "number")) return "???";
@@ -83,9 +81,6 @@ export default class Calculator extends Component {
   }
 
   async callAPIandGetReturn() {
-    console.log("send");
-    const apiEndPointURL = "http://127.0.0.1:5000/investment/";
-
     let { data } = await axios.post(apiEndPointURL, this.state);
 
     this.setState((old) => {
@@ -235,7 +230,7 @@ export default class Calculator extends Component {
         <hr></hr>
         <div className="row">
           <div className="col-md-6 col-sm-12">
-            <h4>Zusammensetzung {startdate}</h4>
+            <h4>Zusammensetzung {new Date(startdate).toLocaleDateString()}</h4>
             <PieChart
               gold={gold}
               silver={silver}
@@ -245,7 +240,7 @@ export default class Calculator extends Component {
             ></PieChart>
           </div>
           <div className="col-md-6 col-sm-12">
-            <h4>Zusammensetzung {enddate}</h4>
+            <h4>Zusammensetzung {new Date(enddate).toLocaleDateString()}</h4>
             {endValues.gesamt ? (
               <PieChart
                 gold={endValues.gold}

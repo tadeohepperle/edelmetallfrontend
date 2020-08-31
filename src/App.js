@@ -22,5 +22,15 @@ export default () => (
     <div className="container">
       <Calculator></Calculator>
     </div>
+    <div className="jumbotron" style={{ margin: "6em 0em 0em" }}>
+      <div className="container">
+        <p className="lead my-4">
+          Eine Web-Application von Tadeo Hepperle und Henrik Mader | 31.08.2020
+        </p>
+        <p className="lead my-4">
+          Funktioniert für Daten zwischen dem 01.01.2000 und dem 25.08.2020
+        </p>
+      </div>
+    </div>
   </>
 );

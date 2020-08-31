@@ -29219,7 +29219,18 @@ try {
     }
   }, "Was w\xE4re aus deinen Edelmetallinvestments geworden wenn du am Tag X investiert h\xE4ttest?"))), /*#__PURE__*/_react.default.createElement("div", {
     className: "container"
-  }, /*#__PURE__*/_react.default.createElement(_Calculator.default, null)));
+  }, /*#__PURE__*/_react.default.createElement(_Calculator.default, null)), /*#__PURE__*/_react.default.createElement("div", {
+    className: "jumbotron",
+    style: {
+      margin: "6em 0em 0em"
+    }
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    className: "container"
+  }, /*#__PURE__*/_react.default.createElement("p", {
+    className: "lead my-4"
+  }, "Eine Web-Application von Tadeo Hepperle und Henrik Mader | 31.08.2020"), /*#__PURE__*/_react.default.createElement("p", {
+    className: "lead my-4"
+  }, "Funktioniert f\xFCr Daten zwischen dem 01.01.2000 und dem 25.08.2020"))));
 
   exports.default = _default;
   helpers.postlude(module);
@@ -29258,9 +29269,7 @@ try {
 
   function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-  function percentdifference(wert1, wert2) {
-    return wert2 / wert1 * 100 - 100;
-  }
+  const apiEndPointURL = "https://edelmetallbackend.herokuapp.com/investment/";
 
   function rendite(w1, w2) {
     if (!(typeof w1 == "number") || !(typeof w2 == "number")) return "???";
@@ -29332,8 +29341,6 @@ try {
     }
 
     async callAPIandGetReturn() {
-      console.log("send");
-      const apiEndPointURL = "http://127.0.0.1:5000/investment/";
       let {
         data
       } = await _axios.default.post(apiEndPointURL, this.state);
@@ -29461,7 +29468,7 @@ try {
         className: "row"
       }, /*#__PURE__*/_react.default.createElement("div", {
         className: "col-md-6 col-sm-12"
-      }, /*#__PURE__*/_react.default.createElement("h4", null, "Zusammensetzung ", startdate), /*#__PURE__*/_react.default.createElement(_PieChart.default, {
+      }, /*#__PURE__*/_react.default.createElement("h4", null, "Zusammensetzung ", new Date(startdate).toLocaleDateString()), /*#__PURE__*/_react.default.createElement(_PieChart.default, {
         gold: gold,
         silver: silver,
         platinum: platinum,
@@ -29469,7 +29476,7 @@ try {
         gesamt: startvalue
       })), /*#__PURE__*/_react.default.createElement("div", {
         className: "col-md-6 col-sm-12"
-      }, /*#__PURE__*/_react.default.createElement("h4", null, "Zusammensetzung ", enddate), endValues.gesamt ? /*#__PURE__*/_react.default.createElement(_PieChart.default, {
+      }, /*#__PURE__*/_react.default.createElement("h4", null, "Zusammensetzung ", new Date(enddate).toLocaleDateString()), endValues.gesamt ? /*#__PURE__*/_react.default.createElement(_PieChart.default, {
         gold: endValues.gold,
         silver: endValues.silver,
         platinum: endValues.platinum,
