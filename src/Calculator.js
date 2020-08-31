@@ -129,7 +129,7 @@ export default class Calculator extends Component {
               value={this.state.startdate}
             ></DateInput>
           </div>
-          <div className="col-md-6 col-sm-12">
+          <div className="col-md-6 col-sm-12" style={{ marginBottom: "1em" }}>
             <DateInput
               title="Enddatum"
               onChange={(e) => this.handleChange("enddate", e.target.value)}
@@ -179,10 +179,13 @@ export default class Calculator extends Component {
           </div>
         </div>
         <hr></hr>
+
         <Button
           onClick={this.callAPIandGetReturn}
-          style={{ marginBottom: "1em" }}
-          variant="danger"
+          style={{
+            marginBottom: "1em",
+          }}
+          variant="primary"
         >
           Rendite Berechnen
         </Button>
@@ -230,7 +233,7 @@ export default class Calculator extends Component {
         <hr></hr>
         <div className="row">
           <div className="col-md-6 col-sm-12">
-            <h4>Zusammensetzung {new Date(startdate).toLocaleDateString()}</h4>
+            <h4>Portfolio am {new Date(startdate).toLocaleDateString()}</h4>
             <PieChart
               gold={gold}
               silver={silver}
@@ -240,7 +243,7 @@ export default class Calculator extends Component {
             ></PieChart>
           </div>
           <div className="col-md-6 col-sm-12">
-            <h4>Zusammensetzung {new Date(enddate).toLocaleDateString()}</h4>
+            <h4>Portfolio am {new Date(enddate).toLocaleDateString()}</h4>
             {endValues.gesamt ? (
               <PieChart
                 gold={endValues.gold}

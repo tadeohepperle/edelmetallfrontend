@@ -14,8 +14,8 @@ export default () => (
           Edelmetall-Rendite
         </h1>
         <p className="lead my-4" style={{ fontWeight: "bold" }}>
-          Was wäre aus deinen Edelmetallinvestments geworden wenn du am Tag X
-          investiert hättest?
+          Was wäre aus deinen Gold-, Silber-, Platin- und Palladium-Investments
+          geworden wenn du investiert hättest?
         </p>
       </div>
     </div>
